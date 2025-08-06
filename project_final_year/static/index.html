@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicinal Plant Detection</title>
+    <link rel="icon" type="image/x-icon" href="download.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+<div id="upload-section" class="container" style="background-color: rgba(181, 246, 224, 0.829);">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a href="/recommendation" >
+      <button>Go to Recomendation Dashboard</style></button></a>
+  </div>
+</nav>
+<!-- Header -->
+<h1>Medicinal Plant Detection&#127807;</h1>
+<!-- Upload & Predict -->
+<div id="upload-section" class="container">
+  <input type="file" id="fileInput" multiple accept="image/*" class="form-control w-50 mx-auto" />
+  <br/>
+  <button onclick="uploadImages()" class="btn btn-success">Upload & Predict</button>
+</div>
+
+<!-- Preview container for selected images -->
+<div id="preview-container" style="display:flex; gap:10px; margin-bottom:10px;"></div>
+
+<!-- Modal for plant info -->
+<div id="info-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+  <div id="modal-content" style="background:#fff; padding:20px; border-radius:8px; max-width:400px; margin:auto;"></div>
+</div>
+<div class="container">
+    <h1>Plant Analysis System&#x1F340;</h1>
+    
+    <div class="upload-section">
+        <input type="file" id="leaf-image" accept="image/*" style="display: none">
+        <button onclick="document.getElementById('leaf-image').click()">Choose Image</button>
+        <button id="analyze-btn" disabled>Analyze Plant</button>
+        <div id="preview">
+            <img id="preview-image" style="display: none">
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        Analyzing plant image...
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <div id="result" class="result-section">
+        <h2>Analysis Results</h2>
+        <div class="analysis-grid">
+            <div class="analysis-card">
+                <h3>Dimensions</h3>
+                <p>Width: <span id="width"></span>px</p>
+                <p>Height: <span id="height"></span>px</p>
+                <p>Aspect Ratio: <span id="aspect-ratio"></span></p>
+            </div>
+            <div class="analysis-card">
+                <h3>Color Analysis</h3>
+                <p>Dominant Color: <span id="dominant-color"></span></p>
+                <p>RGB: <span id="rgb"></span></p>
+                <p>Intensity: <span id="intensity"></span></p>
+            </div>
+            <div class="analysis-card">
+                <h3>Shape Analysis</h3>
+                <p>Area: <span id="area"></span>px²</p>
+                <p>Perimeter: <span id="perimeter"></span>px</p>
+                <p>Circularity: <span id="circularity"></span></p>
+            </div>
+            <div class="analysis-card">
+                <h3>Texture Analysis</h3>
+                <p>Contrast: <span id="contrast"></span></p>
+                <p>Smoothness: <span id="smoothness"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Prediction Results -->
+<div id="results"></div>
+
+<!-- Feedback Section -->
+<div id="feedback-section" class="hidden">
+  <h3>Provide Feedback on Misclassification</h3>
+  <div id="reported-details" style="margin-bottom: 1rem;"></div>
+  <textarea id="feedback-text" placeholder="Why do you think this plant was misclassified?"></textarea>
+  <input type="text" id="suggested-correction" placeholder="Suggested Correct Identification (Optional)"/>
+  <button onclick="submitFeedback()" class="btn btn-primary mt-2">Submit Feedback</button>
+</div>
+</div>
+<script src="main.js"></script>
+</body>
+<footer>
+    <div class="container-fluid">
+        <p style="background-color: rgba(13, 61, 70, 0.669); font-family: 'Courier New', Courier, monospace; font-style: italic; color: rgb(255, 255, 255);"><b>Developed By CSE 8<sup>th</sup> Sem AITM Students @Bharat Teradal, @Aditya Khadaki @Nagesh Tangadi & @Abhishek Rawal.</b></p>
+    </div>
+</footer>
+</html>
